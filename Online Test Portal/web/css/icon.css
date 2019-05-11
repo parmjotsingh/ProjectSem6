@@ -1,0 +1,81 @@
+.center{
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+  width: 80%;
+  height: 100%;
+}
+
+.d:nth-child(1) , .d:nth-child(2) , .d:nth-child(3) ,.d:nth-child(4),.d:nth-child(5)  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  transition-duration: .5s;
+  position: relative;
+  transform:skewY(5deg);
+  margin: 0px 50px;
+}
+.d span{
+  position: absolute;
+  height: 100px;
+  width:  100px;
+  background-color: rgba(203, 41, 41, 0.76);
+  display: block;
+  transition-duration: .5s;
+  color: white;
+  font-size: 170px;
+  transform: rotate(-45deg) skew(5deg,15deg);
+}
+
+
+.d:nth-child(2) span{
+  background-color: #375994;
+}
+.d:nth-child(3) span{
+  background-color: #53a4e1;
+}
+.d:nth-child(4) span{
+  background-color: #0177af;
+}
+
+
+i{
+  color: white;
+}
+.sp1 {
+  opacity: 0.2;
+}
+.sp2 {
+  opacity: 0.4;
+}
+.sp3 {
+  opacity: 0.6;
+}
+.sp4 {
+  opacity: 0.8;
+}
+.sp5 {
+  opacity: 1;
+}
+.d:hover .sp1 {
+  transform:rotate(-45deg) skew(5deg,15deg) translate(10px,-10px);
+}
+.d:hover .sp2 {
+  box-shadow: 0 0 1px black;
+  transform:rotate(-45deg) skew(5deg,15deg) translate(20px,-20px);
+}
+.d:hover .sp3 {
+  box-shadow: 0 0 1px black;
+  transform:rotate(-45deg) skew(5deg,15deg) translate(30px,-30px);
+}
+.d:hover .sp4 {
+  box-shadow: 0 0 1px black;
+  transform:rotate(-45deg) skew(5deg,15deg) translate(40px,-40px);
+}
+.d:hover .sp5 {
+  box-shadow: 0 0 1px black;
+  transform:rotate(-45deg) skew(5deg,15deg) translate(50px,-50px);
+}
