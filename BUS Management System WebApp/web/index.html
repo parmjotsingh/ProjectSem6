@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style media="screen">
+      body{
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        height: 90vh;
+        width: 90vw;
+        background-color: slateGrey;
+      }
+      /* div{
+        background-color: skyblue;
+        height: 200px;
+        width:  200px;
+      } */
+      .d{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition-duration: .5s;
+      }
+      span{
+        position: absolute;
+        height: 200px;
+        width:  200px;
+        background-color: springgreen;
+        display: block;
+        transition-duration: .5s;
+        color: white;
+        font-size: 170px;
+        transform: rotate(-45deg) skew(5deg,15deg);
+        display: none;
+      }
+      i{
+
+        color: white;
+      }
+      .sp1 {
+        opacity: 0.2;
+      }
+      .sp2 {
+        opacity: 0.4;
+      }
+      .sp3 {
+        opacity: 0.6;
+      }
+      .sp4 {
+        opacity: 0.8;
+      }
+      .sp5 {
+        opacity: 1;
+      }
+
+      div:hover .sp1 {
+        transform:rotate(-45deg) skew(5deg,15deg) translate(10px,-10px);
+      }
+      div:hover .sp2 {
+        transform:rotate(-30deg) skew(5deg,15deg) translate(30px,-30px);
+      }
+      div:hover .sp3 {
+        transform:rotate(-20deg) skew(5deg,15deg) translate(50px,-50px);
+      }
+      div:hover .sp4 {
+        box-shadow: 0 0 1px black;
+        transform:rotate(-10deg) skew(5deg,10deg) translate(70px,-70px);
+      }
+      div:hover .sp5 {
+        box-shadow: 0 0 1px black;
+        transform:rotate(0deg) skew(0,0) translate(79px,-70px);
+      }
+      .eg{
+        display: block;
+        height: 100px;
+        width:100px;
+        background-color: skyblue;
+        transform: rotate(45deg) skewY(10deg,10deg);
+      }
+      rect{
+        stroke:white;
+        fill: transparent;
+        height: 100px;
+        width: 200px;
+        stroke-width:3;
+        transition-duration: 1s;
+      }
+      rect:hover{
+        animation-name: ani;
+        animation-duration:1s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes ani {
+        0%{
+          stroke-dasharray:1 600;
+        }
+        50%{
+          stroke: blue;
+          stroke-dasharray:600 600;
+        }
+        100%{
+          stroke: skyblue;
+          stroke-dasharray:200 100;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="" id="sp">
+      <script type="text/javascript" src="forTesting.js">
+
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+
+    </div> -->
+    <div class="d">
+      <span class="sp1"></span>
+      <span class="sp2"></span>
+      <span class="sp3"></span>
+      <span class="sp4"></span>
+      <span class="sp5"><i class="fab fa-facebook-f" ></i></span>
+    </div>
+    <svg>
+      <rect></rect>
+    </svg>
+    <!-- <span class="eg"></span> -->
+  </body>
+</html>

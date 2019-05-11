@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link rel="stylesheet" href="css/navigation.css">
+      <style media="screen">
+      body{
+        margin:0;
+        background:black;
+        /* overflow-x: hidden; */
+      }
+        .container{
+          display:flex;
+          flex-direction:column;
+        }
+        .row1,.row2{
+          /* flex-wrap: wrap; */
+          display:flex;
+          flex-direction:row;
+          justify-content: space-around;
+          background-color:inherit;
+        }
+        .box{
+          font-family: 'Roboto Slab';
+          width:100%;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:400px;
+          background-color: black ;
+        }
+        .box:hover{
+          box-shadow:0 5px 100px green;
+          transform: translate(0,-5px);
+          transition-duration: 0.5s;
+
+        }
+        .box:hover .container{
+          background: black;
+        }
+        .box h1{
+            color:white;
+        }
+        .box .hed span::after{
+          content: '\00bb';
+          opacity: 0;
+          position: absolute;
+          right: -150px;
+        }
+        .hed{
+          position: relative;
+        }
+        .btn:hover{
+          border: 2px solid #ffc400;
+          border-radius: 3px;
+          color: #ffc400;
+          padding: 5px 10px;
+          transition: 0.5s;
+          background-color: transparent;
+          cursor: pointer;
+        }
+        .hed:hover{
+          cursor: pointer;
+          border: 2px solid #0fe1bc;
+          border-radius: 3px;
+          color: #0fe1bc;
+          padding: 5px 10px;
+          background-color: transparent;
+        }
+        .box:hover .hed{
+          transform: rotate(360deg);
+          transition-duration: 0.5s;
+        }
+        .box:hover .hed span::after{
+          content: '\00bb';
+          opacity: 1;
+          transition-duration: 1s;
+          transform: rotate(-360deg);
+          right: -30px;
+        }
+        .clock{
+          position:absolute;
+          height:300px;
+          width:300px;
+          background-color:rgb(250,250,250,0.1);
+          border-radius:50%;
+          display:flex;
+          justify-content:center;
+          background:url("images.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          opacity: 0;
+        }
+        .box:hover .clock{
+          opacity: 0.6;
+          transition-delay:0s;
+          transition-duration: 1s;
+        }
+        .second{
+          width: 1px;
+          height: 135px;
+          color: red;
+          top:4%;
+          transform-origin: bottom;
+          border: solid;
+          opacity: 1;
+          position:absolute;
+        }
+
+        .minute{
+          width: 3px;
+          height: 140px;
+          color: green;
+          transform-origin: bottom;
+          border: solid;
+          opacity: 1;
+          position:absolute;
+          top:2%;
+        }
+        .hour{
+          width: 5px;
+          height: 100px;
+          color: blue;
+          top:16%;
+          transform-origin: bottom;
+          border: solid;
+          opacity: 1;
+          position:absolute;
+        }
+        .clock canvas {
+           position:absolute;
+           width:100%;
+           height:100%;
+           z-index:-1;
+           display: block;
+        }
+
+      </style>
+      <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Rakkas" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Permanent+Marker">
+      <link rel="stylesheet" href="css/parallax.css">
+      <link rel="stylesheet" href="css/info.css">
+      <link rel="stylesheet" href="css/infoCenter.css">
+
+  </head>
+  <body>
+    <div class="effect" id="img">
+      <h1 id="wel" class="welcome">Welcome</h1>
+      <div id="img1" class="img1"></div>
+      <div id="img2" class="img2"></div>
+      <div id="img3" class="img3"></div>
+      <script type="text/javascript" src="script/parallax.js"></script>
+    </div>
+    <div class="nav">
+      <div class="navLeft">
+        <div class="navElementL">
+          <button type="button" class="navbtn" name="button">Home</button>
+        </div>
+        <div class="navElementL">
+          <button type="button" class="navbtn" name="button">Contact US</button>
+        </div>
+        <div class="navElementL">
+          <button type="button" class="navbtn" name="button">Routes</button>
+          <div class="content">
+            <a href="#" >CHD 101</a>
+            <a href="#" >CHD 102</a>
+            <a href="#" >CHD 103</a>
+            <a href="#" >CHD 104</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navRight">
+        <div class="navElement">
+          <button type="button" class="navbtn" name="button">Login</button>
+        </div>
+        <div class="navElement">
+          <button type="button" class="navbtn" name="button">Extra</button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="info-right">
+      fsdfsd
+    </div> -->
+    <div class="container">
+      <div class="row1">
+        <div class="box">
+          <h1 class="hed" onclick="showInfo()"><span>Bus Routes</span></h1>
+          <script type="text/javascript" src="script/info.js"></script>
+        </div>
+        <div class="box" id="slide-left">
+          <div class="clock" id="clock">
+            <span class="minute" id="minuteHand"></span>
+            <span class="hour" id="hourHand"></span>
+            <span class="second" id="secondHand"></span>
+            <script type="text/javascript" src="script/scriptTime.js" ></script>
+            <script src="script/scriptTimeP5.js"></script>
+          </div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script> -->
+
+          <h1 class="hed2">
+            Timings
+          </h1>
+        </div>
+        <div class="info-right" id="inf-rgt"><!--HERE ONLY============================-->
+          <button id="cross" onclick="closeInfo()"><span>&#10060;</span></button>
+          <form id="info-frm" action="RouteSearchServlet" method="post">
+            <input id="info-Search-bar" type="text" name="searchbar1" value="" placeholder="🔍eg. '101' "/>
+            <select id="info-select" name="Routes">
+              <option value="CHD">Chandigarh</option>
+              <option value="Mhl">Mohali</option>
+              <option value="Nal">Nalagarh</option>
+              <option value="All">ALL</option>
+            </select>
+            <button id="info-Search-btn" type="button" name="button">Search</button>
+          </form>
+          <table>
+            <tr class="info-tr">
+              <th>S.No</th>
+              <th>Driver</th>
+              <th>Bus Route</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Honey</td>
+              <td>CHD 101</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>John</td>
+              <td>CHD 102</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Rock</td>
+              <td>CHD 103</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Rock</td>
+              <td>CHD 103</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Rock</td>
+              <td>CHD 103</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Rock</td>
+              <td>CHD 103</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="box">
+          <h1 class="btn" onclick="showInfoCenter()">Bus Number</h1>
+        </div>
+        <div class="box">
+          <h1>ALL</h1>
+        </div>
+      </div>
+      <div class="" id="info-center"><!--here only-->
+        <span onclick="closeInfoCenter()">&#9932;</span>
+        <form id="infoCenter-frm" action="" method="post">
+          <input id="infoCenter-Search-bar" type="text" placeholder="🚌 eg. 'HR 0* AB 1234'"/>
+          <button id="infoCenter-Search-btn" type="button" name="button">🔍</button>
+        </form>
+        <table>
+          <tr class="info-tr">
+            <th>S.No</th>
+            <th>Driver</th>
+            <th>Bus Route</th>
+            <th>Bus Number</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Honey</td>
+            <td>CHD 101</td>
+            <td>HP 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>John</td>
+            <td>CHD 102</td>
+            <td>HR 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rock</td>
+            <td>CHD 103</td>
+            <td>MP 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Harry</td>
+            <td>MOL 104</td>
+            <td>MH 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Honey</td>
+            <td>CHD 101</td>
+            <td>HP 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>John</td>
+            <td>CHD 102</td>
+            <td>HR 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rock</td>
+            <td>CHD 103</td>
+            <td>MP 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Harry</td>
+            <td>MOL 104</td>
+            <td>MH 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Honey</td>
+            <td>CHD 101</td>
+            <td>HP 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>John</td>
+            <td>CHD 102</td>
+            <td>HR 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rock</td>
+            <td>CHD 103</td>
+            <td>MP 99 TP 0001</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Harry</td>
+            <td>MOL 104</td>
+            <td>MH 99 TP 0001</td>
+          </tr>
+        </table>
+        <script type="text/javascript" src="script/infoCenter.js"></script>
+      </div>
+    </div>
+    <div class="footer">
+
+    </div>
+  </body>
+</html>

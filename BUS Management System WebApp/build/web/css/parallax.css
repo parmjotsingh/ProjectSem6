@@ -1,0 +1,52 @@
+.effect{
+  height:100vh;
+  filter:brightness(2);
+  width:100%;
+  background:url("img/night sky.jpg");
+  background-size:cover;
+  background-attachment:fixed;
+  overflow:hidden;
+}
+.effect2{
+  height:100vh;
+  filter:brightness(2);
+  width:100%;
+  background-color:black;
+}
+.img1{
+  background: url("img/mountain3.png");
+  position:absolute;
+  background-repeat: no-repeat;
+  height: 100%;
+  width:100%;
+  background-size: cover;
+}
+.img2{
+  background: url("img/montain2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute;
+  height: 100%;
+  width:100%;
+}
+.img3{
+  background: url("img/forest2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute;
+  top: 30%;
+  height: 100%;
+  width:100%;
+  background-position: center;
+}
+.welcome{
+  font-family: Permanent Marker;
+  color:rgb(240,240,240);
+  /* font-style: italic; */
+  font-size: 60px;
+  letter-spacing: 3px;
+  position: absolute;
+  left:45%;
+  top: 15%;
+  font-weight: 400;
+}

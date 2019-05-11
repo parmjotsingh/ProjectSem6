@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        background-color:transparent;
+        background-image:url("images/back.png");
+        margin:0;
+        padding:0;
+        background-size:cover;
+        background-position:center;
+        height:100vh;
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+      }
+      .box{
+        height:500px;
+        width:400px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        <!-- filter:blur(1px); -->
+        <!-- border:solid black 1px; -->
+      }
+
+      .box:hover{
+        transition-duration:.5s;
+        box-shadow:0 0 20px black;
+        border-radius:10px;
+        transform:translateY(-10px);
+      }
+      form{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        filter:blur(0);
+      }
+      #input{
+        border:none;
+        outline:none;
+        width:300px;
+        color:rgb(240,240,240);
+        background-color:rgba(10,10,10,0.8);
+        border-bottom:solid 2px lightseagreen;
+        padding:10px 10px;
+        font-size:20px;
+        text-align:center;
+        letter-spacing:2px;
+      }
+      .aquabtn{
+        border:none;
+        outline:none;
+        width:300px;
+        color:rgb(240,240,240);
+        background-color:rgb(10,10,10,0.8);
+        padding:10px 10px;
+        font-size:20px;
+        text-align:center;
+        color:aqua;
+        border:solid aqua 2px;
+        width:100px;
+        letter-spacing:2px;
+      }
+      .aquabtn:hover{
+        background-color:aqua;
+        color:black;
+      }
+      #dispU{
+        color:red;
+        position:relative;
+        top:-5px;
+        font-size:14px;
+      }
+      #dispP{
+        color:red;
+        position:relative;
+        top:-5px;
+        font-size:14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <form class="" name="frm" action="LoginServlet" method="get" onsubmit="return check()">
+        <input id="input" type="text" name="uname" value="" placeholder="Username" onchange="checkUsr()">
+        <p id="dispU"></p>
+        <input id="input" type="password" name="pass" value="" placeholder="Password" onchange="checkPass()">
+        <p id="dispP"></p>
+        <input class="aquabtn" type="submit" value="Login" onClick="check()">
+      </form>
+      <script type="text/javascript">
+        function check(){
+            if( checkUsr() && checkPass() ){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        function checkUsr(){
+          var name = document.forms["frm"]["uname"].value;
+          console.log(name);
+          if (name == "" && name.length <= 0)
+            {
+                document.getElementById("dispU").innerHTML = "Please enter your name";
+                document.forms["frm"]["uname"].style.borderBottomColor="red";
+                document.forms["frm"]["uname"].style.backgroundColor="rgba(255,255,255,0.3)";
+                return false;
+            }
+            else{
+                document.getElementById("dispU").innerHTML = "";
+                document.forms["frm"]["uname"].style.borderBottomColor="lightseagreen";
+                document.forms["frm"]["uname"].style.backgroundColor="rgba(10,10,10,0.8)";
+            }
+            
+          return true;
+        }
+        
+        function checkPass(){
+          
+          var password = document.forms["frm"]["pass"].value;
+          console.log(password);
+          if(password == ""){
+            document.getElementById("dispP").innerHTML = "Please enter your Password";
+            document.forms["frm"]["pass"].style.borderBottomColor="red";
+            document.forms["frm"]["uname"].style.backgroundColor="rgba(255,255,255,0.3)";
+            return false;
+          }
+          else{
+            document.getElementById("dispU").innerHTML = "";
+            document.forms["frm"]["pass"].style.borderBottomColor="lightseagreen";
+            document.forms["frm"]["uname"].style.backgroundColor="rgba(10,10,10,0.8)";
+          }
+          if( password.length < 8){
+              document.getElementById("dispP").innerHTML = "Please enter your Correct password";
+              document.forms["frm"]["pass"].style.borderBottomColor = "red";
+              document.forms["frm"]["uname"].style.backgroundColor="rgba(255,255,255,0.3)";
+              return false;
+          }
+          else{
+            document.getElementById("dispP").innerHTML = "";
+            document.forms["frm"]["pass"].style.borderBottomColor="lightseagreen";
+            document.forms["frm"]["uname"].style.backgroundColor="rgba(10,10,10,0.8)";
+          }
+          return true;
+        }
+        
+      </script>
+    </div>
+  </body>
+</html>

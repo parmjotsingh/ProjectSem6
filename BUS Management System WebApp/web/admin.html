@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=B612" rel="stylesheet">
+    <style media="screen">
+      body{
+        background-color:#f4a142;
+        margin:0;
+        /* z-index:0; */
+        overflow-y:hidden;
+      }
+      .container{
+        background-color:rgba(240,240,240,0.4);
+        height:91vh;
+        width:95%;
+        margin: 6vh 1% 3vh 4%;
+        border-radius:10px;
+        display:flex;
+        align-item:center;
+        justify-content:center;
+        flex-wrap:wrap;
+        /* position:relative; */
+        /* z-index:1; */
+      }
+      .left-detail{
+        flex:4.5;
+        background-color:rgba(40,40,40,0.4);
+        border-radius:10px;
+        margin:3px;
+        margin-right:0;
+        width: 100%;
+        position:relative;
+
+      }
+      .left-detail-content{
+        position: relative;
+        display: flex;
+        align-items:  center;
+        flex-direction: column;
+        width:100%;
+        overflow:hidden;
+
+      }
+      .right-content{
+        flex:1;
+        display:flex;
+        align-items:center;
+      }
+      .options{
+        background-color:rgba(255,255,255,0.4);
+        text-align:center;
+        width:100%;
+        height:50%;
+        border-radius:10px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+      }
+      .options p{
+        position:relative;
+        font-family: 'Staatliches';
+        font-size:25px;
+
+      }
+      .options span{
+        position:absolute;
+        height:2px;
+        width:60px;
+        background-color:black;
+        transition-duration:.3s;
+        transition-timing-function: linear;
+      }
+      #pointer{
+        transition-duration:0s;
+        border: solid 20px transparent;
+        border-left: solid 30px #a18462;
+        background-color: transparent;
+      }
+      .Search{
+        width: 100%;
+        padding-top:5px;
+        margin-bottom:5px;
+      }
+      .Search form{
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .input{
+        background-color:rgba(0,0,0,0.4);
+        border:none;
+        padding:2px 5px;
+        width:50%;
+        height:30px;
+        color:white;
+        font-size:18px;
+        border-bottom:1px solid white;
+        border-radius:2px;
+        outline: none;
+      }
+      .sbmBtn{
+        background-color:rgba(20,20,20,0.4);
+        color:white;
+        height:35px;
+        font-size:18px;
+        padding:2px 5px;
+        border:none;
+        letter-spacing:2px;
+        font-weight: bold;
+        font-family: 'Shadows Into Light';
+      }
+      .sbmBtn:hover{
+        border:1px solid lightseagreen;
+        color:lightseagreen;
+        padding:1px 4px;
+        transition-duration:.3s;
+      }
+      .tbl{
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        width: 100%;
+        /* z-index:-1; */
+      }
+      table{
+        border-collapse: collapse;
+        width: 85%;
+        text-align: center;
+        overflow-y: scroll;
+      }
+      table tr:nth-child(odd) {
+        background-color:rgba(210,210,210,0.9);
+      }
+      table tr td{
+        font-family: 'Satisfy';
+        width:20%;
+        margin: 0;
+        letter-spacing: 2px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+        /* box-sizing: border-box; */
+      }
+
+       tr:hover td{
+        transition-duration: .1s;
+        font-size: 24px;
+        padding: 4.5px;
+        letter-spacing: 5px;
+      }
+      th{
+        padding: 10px;
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: 3px;
+        font-family: 'Bree Serif', serif;
+      }
+      #leftDetailContent2{
+        display:none;
+        position:absolute;
+        top:0;
+      }
+      #leftDetailContent3{
+        display:none;
+        position:absolute;
+        top:0;
+      }
+      .sbmBtnred{
+        background-color:rgba(20,20,20,0.4);
+        color:white;
+        height:35px;
+        font-size:18px;
+        padding:2px 5px;
+        border:none;
+        letter-spacing:2px;
+        font-weight: bold;
+        font-family: 'Shadows Into Light';
+        
+      }
+      .sbmBtnred:hover{
+        border:1px solid red;
+        color:red;
+        padding:1px 4px;
+        transition-duration:.3s;
+      }
+      .sbmBtngreen{
+        background-color:rgba(20,20,20,0.4);
+        color:white;
+        height:35px;
+        font-size:18px;
+        padding:2px 5px;
+        border:none;
+        letter-spacing:2px;
+        font-weight: bold;
+        font-family: 'Shadows Into Light';
+      }
+      .sbmBtngreen:hover{
+        border:1px solid green;
+        color:green;
+        padding:1px 4px;
+        transition-duration:.3s;
+      }
+      .sbmBtnaqua{
+        background-color:rgba(20,20,20,0.4);
+        color:white;
+        height:35px;
+        font-size:18px;
+        padding:2px 5px;
+        border:none;
+        letter-spacing:2px;
+        font-weight: bold;
+        font-family: 'Shadows Into Light';
+      }
+      .sbmBtnaqua:hover{
+        border:1px solid aqua;
+        color:aqua;
+        padding:1px 4px;
+        transition-duration:.3s;
+      }
+      #forUpdate{
+        padding:20px 30px;
+        width:500px;
+        height:500px;
+        position:absolute;
+        top:150%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        display:none;
+        justify-content:center;
+        align-items:center;
+        background-color:rgba(0,0,0,0.8);
+        border-radius:10px;
+      }
+      #forUpdate form{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+      }
+      #forUpdate input{
+        background-color:transparent;
+        color:white;
+        font-size:20px;
+        border:none;
+        border-bottom:2px solid white;
+        margin:20px 0;
+        padding:10px 0;
+        outline:none;
+      }
+
+    </style>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Satisfy|Shadows+Into+Light|Molle:400i|Bad+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+    <link rel="stylesheet" href="css/adminNav.css">
+    <link rel="stylesheet" href="css/adminWelcome.css">
+  </head>
+  <body>
+    <div class="welcome">
+      <h1>
+        <span>W</span>
+        <span>e</span>
+        <span>l</span>
+        <span>c</span>
+        <span>o</span>
+        <span>m</span>
+        <span>e</span>
+      </h1>
+      <button type="button" name="button" onclick="slideDown()">&#8744;</button>
+    </div>
+    <div class="nav">
+      <div class="nav-btn" id="nav-btn" onclick="openNav()">
+        &#9776;
+      </div>
+      <script type="text/javascript" src="script/adminnav.js"></script>
+      <div class="nav-content">
+        <p class="nav-elem" >Home</p>
+        <p class="nav-elem" >About us</p>
+        <p class="nav-elem" >Contact us</p>
+        <p class="nav-elem" >Login</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="left-detail">
+        <div class="left-detail-content" id="leftDetailContent1">
+          <div class="Search">
+            <form class="" action="index.html" method="post">
+              <input class="input" type="text" name="" value="">
+              <input class="sbmBtn" type="submit" name="" value="Search">
+              <button class="sbmBtngreen" type="button" name="button">ADD</button>
+              <button class="sbmBtnred" type="button" name="button">DELETE</button>
+              <button class="sbmBtnaqua" type="button" name="button" onclick="upd()">UPDATE</button>
+            </form>
+          </div>
+          <div class="tbl">
+            <table>
+              <tr class="drv-tr">
+                <th>S.No</th>
+                <th>Driver</th>
+                <th>Contact</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Honey</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>John</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Rock</td>
+                <td>9999888877</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="left-detail-content" id="leftDetailContent2">
+          <div class="Search">
+            <form class="" action="index.html" method="post">
+              <input class="input" type="text" name="" value="">
+              <input class="sbmBtn" type="submit" name="" value="Search">
+              <button class="sbmBtngreen" type="button" name="button">ADD</button>
+              <button class="sbmBtnred" type="button" name="button">DELETE</button>
+              <button class="sbmBtnaqua" type="button" name="button" onclick="upd()">UPDATE</button>
+            </form>
+          </div>
+          <div class="tbl">
+            <table>
+              <tr class="info-tr">
+                <th>S.No</th>
+                <th>Driver</th>
+                <th>Bus Route</th>
+                <th>Bus Number</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Honey</td>
+                <td>CHD 101</td>
+                <td>HP 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>John</td>
+                <td>CHD 102</td>
+                <td>HR 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>CHD 103</td>
+                <td>MP 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Harry</td>
+                <td>MOL 104</td>
+                <td>MH 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Honey</td>
+                <td>CHD 101</td>
+                <td>HP 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>John</td>
+                <td>CHD 102</td>
+                <td>HR 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>CHD 103</td>
+                <td>MP 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Harry</td>
+                <td>MOL 104</td>
+                <td>MH 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Honey</td>
+                <td>CHD 101</td>
+                <td>HP 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>John</td>
+                <td>CHD 102</td>
+                <td>HR 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>CHD 103</td>
+                <td>MP 99 TP 0001</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Harry</td>
+                <td>MOL 104</td>
+                <td>MH 99 TP 0001</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="left-detail-content" id="leftDetailContent3">
+          <div class="Search">
+            <form class="" action="index.html" method="post">
+              <input class="input" type="text" name="" value="">
+              <input class="sbmBtn" type="submit" name="" value="Search">
+              <button class="sbmBtngreen" type="button" name="button">ADD</button>
+              <button class="sbmBtnred" type="button" name="button">DELETE</button>
+              <button class="sbmBtnaqua" type="button" name="button" onclick="upd()">UPDATE</button>
+            </form>
+          </div>
+          <div class="tbl">
+            <table>
+              <tr class="drv-tr">
+                <th>S.No</th>
+                <th>Driver</th>
+                <th>Routes</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Honey</td>
+                <td>CHD 101</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>John</td>
+                <td>CHD 102</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Rock</td>
+                <td>CHD 103</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Rock</td>
+                <td>CHD 104</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Rock</td>
+                <td>CHD 105</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Rock</td>
+                <td>CHD 106</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Rock</td>
+                <td>CHD 107</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Rock</td>
+                <td>CHD 108</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <!-- <script type="text/babel" src="script/react.js"></script>
+        <script type="text/javascript" src="script/admin.js"></script> -->
+      </div>
+      <div class="right-content">
+        <div class="options">
+          <p id="option1" onclick="view(1)">Driver</p>
+          <p id="option2" onclick="view(2)">Bus Number</p>
+          <p id="option3" onclick="view(3)">Bus Routes</p>
+          <span id="line"></span>
+          <span id="pointer"></span>
+        </div>
+        <script type="text/javascript" src="script/admin.js"></script>
+      </div>
+    </div>
+    <div id="forUpdate">
+      <form class="" action="" method="post">
+        <input type="text" name="" value="" placeholder="Route">
+        <input type="text" name="" value="" placeholder="Driver">
+        <input type="text" name="" value="" placeholder="Contact">
+        <div class="">
+          <input type="submit" name="" value="Update" style="border:lightgreen solid 2px;color:lightgreen;padding:5px 10px;cursor:pointer;">
+          <button type="button" name="button"  style="border:red solid 2px;color:red;padding:5px 10px;cursor:pointer;background-color:transparent;font-size:20px;outline:none;" onclick="updClose()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

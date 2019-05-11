@@ -1,0 +1,110 @@
+.info-right{
+  position: absolute;
+  background-color: #4a61e3;
+  height: 400px;
+  width: 0%;
+  right: 0%;
+  transition-duration: 1s;
+  /* display: flex; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  opacity: 0;
+  z-index: 1;
+  overflow-x: hidden;
+}
+/* .row1:hover .info-right{
+  right: 00px;
+  width: 50%;
+} */
+
+#cross{
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 50%;
+  background-color: #7afae3 ;
+  opacity: 0.8;
+  border-style: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 40px rgb(255,255,255),  0px 0px 20px rgb(0,0,0) ;
+}
+#info-Search-bar{
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 18px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-radius: 20px;
+  border: 2px solid black;
+  /*border-right: none;*/
+  outline: none;
+  margin: 0;
+  margin-top: 10px;
+  font-family: 'Concert One';
+}
+#info-select{
+  padding: 10px 0px;
+  font-size: 17px;
+  border: 2px solid #ef8b3f;
+  border-left: none;
+  border-right: none;
+  background-color: white;
+  outline: none;
+  margin: 0;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Concert One';
+}
+#info-Search-btn{
+  /* width: 30%; */
+  padding: 10px 10px;
+  cursor: pointer;
+  background-color: #49c5b6;
+  color: #4a61e3;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #ef8b3f;
+  border-left: none;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+  margin: 0;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#info-frm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+th{
+  font-size: 18px;
+}
+th,td{
+  padding: 10px 20px;
+  font-family: 'Rakkas';
+  width:150px;
+  height: 30px;
+  box-sizing: content-box;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #7a59e4;
+}
+table{
+  position: relative;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%,0);
+  font-weight: bold;
+  margin-top: 15px;
+  z-index: 1;
+  border:4px solid black;
+  border-radius: 10px;
+}
